@@ -1,0 +1,49 @@
+.container {
+  width: 100%;
+  margin-top: 2rem;
+
+  .fileList {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+    margin-top: 1rem;
+    .imageContainer {
+      position: relative;
+      height: 3.4rem;
+      width: 3.4rem;
+      img {
+        border-radius: 0.3rem;
+      }
+    }
+
+    .fileInfoWrapper {
+      display: flex;
+      align-items: center;
+
+      .fileInfo {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1.5rem;
+        strong {
+          font-size: 1.2rem;
+        }
+        button {
+          background-color: transparent;
+          font-size: 1rem;
+          margin-left: 1rem;
+          color: #e57878;
+        }
+      }
+    }
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    a {
+      margin-top: 0.4rem;
+      margin-right: 0.2rem;
+    }
+  }
+}
