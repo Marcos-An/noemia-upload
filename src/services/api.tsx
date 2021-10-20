@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'https://noemia.herokuapp.com/posts'
+  baseURL: 'https://noemia.herokuapp.com'
 })
 
 export default api
