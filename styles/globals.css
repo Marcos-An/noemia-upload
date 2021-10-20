@@ -41,16 +41,17 @@ button:hover {
 
 input {
   font-family: "Poppins", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 500;
-  border: 1px solid #b8b8b8;
+  border: 2px solid #b8b8b8;
   border-radius: 0.4rem;
 }
 
 input:focus {
   font-family: "Poppins", sans-serif;
-  border: 1px solid var(--yellow);
+  border: 2px solid var(--yellow);
   border-radius: 0.4rem;
+  outline: none !important;
 }
 
 a {

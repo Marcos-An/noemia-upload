@@ -1,0 +1,35 @@
+.input {
+  flex: 1;
+  margin-bottom: 1.3rem;
+  position: relative;
+  input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.8rem 1.2rem 0.8rem 4rem;
+    min-height: 2rem;
+  }
+  .searchIcon {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+  }
+}
+
+.inputEmpety {
+  flex: 1;
+  margin-bottom: 1.3rem;
+  position: relative;
+
+  input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.8rem 1.2rem 0.8rem 4rem;
+    min-height: 2rem;
+  }
+
+  .searchIcon {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+  }
+}

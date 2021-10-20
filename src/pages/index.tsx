@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './home.module.scss'
 import ContentContainer from '../components/atoms/contentContainer'
+import GenericSearchInput from '../components/atoms/genericSearchInput'
 import Dropzone from '../components/molecules/dropZone'
 import FileList from '../components/organisms/fileList'
 import * as _ from "lodash"
@@ -24,6 +25,10 @@ interface FileProps {
 
 export default function Home() {
   const [uploadedFiles, setUploadedFiles] = useState<Array<FileProps>>([])
+  const [filesFiltredSearch, setFilteredSearch] = useState<Array<FileProps>>([])
+  const [search, setSearch] = useState<string>('')
+
+
   var currentUploadedFiles: any[]
 
   useEffect(() => {
@@ -64,7 +69,11 @@ export default function Home() {
 
     setUploadedFiles([...currentUploadedFiles])
 
-    currentUploadedFiles.forEach((file) => procesUpload(file))
+    currentUploadedFiles.forEach((file) => {
+      if (uploadedFiles.indexOf(file) === -1) {
+        procesUpload(file)
+      }
+    })
   }
 
   const updateFile = async (id: string, data: any) => {
@@ -84,6 +93,7 @@ export default function Home() {
   const procesUpload = (file: FileProps) => {
     const data = new FormData()
 
+    console.log(file)
     data.append('file', file.file, file.name)
 
 
@@ -113,6 +123,18 @@ export default function Home() {
     setUploadedFiles(newUploadedFiles)
   }
 
+  useEffect(() => {
+    const lowerCaseValue = search.toLowerCase()
+
+    const filesFilered = uploadedFiles.filter((file) => {
+      if (file.name.toLowerCase().includes(lowerCaseValue)) {
+        return file
+      }
+    })
+
+    setFilteredSearch(filesFilered)
+  }, [search])
+
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
@@ -125,8 +147,24 @@ export default function Home() {
       </div>
       <ContentContainer>
         <Dropzone onUpload={handleUpload} />
-        {!!uploadedFiles.length && <FileList files={uploadedFiles} handleDeleteFile={handleDeleteFile} />}
       </ContentContainer>
+      <div className={styles.contentContainer}>
+        <GenericSearchInput
+          value={search}
+          setValue={setSearch}
+        />
+        {!!uploadedFiles.length && search === '' &&
+          <FileList files={uploadedFiles} handleDeleteFile={handleDeleteFile}
+          />
+        }
+        {!!filesFiltredSearch.length && search !== '' &&
+          <FileList files={filesFiltredSearch} handleDeleteFile={handleDeleteFile} />
+        }
+        {
+          !!!filesFiltredSearch.length && !!!uploadedFiles.length &&
+          <h2>No files have been uploaded yet.</h2>
+        }
+      </div>
     </div>
   )
 }

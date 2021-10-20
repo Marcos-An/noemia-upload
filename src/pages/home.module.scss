@@ -1,16 +1,31 @@
 .container {
   width: 100vw;
   height: 100vh;
+  padding: 0rem 2.4rem;
   background-color: var(--yellow);
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   .imageContainer {
-    position: absolute;
-    top: 17rem;
+    position: relative;
+    bottom: 5rem;
     height: 7rem;
     width: 16rem;
+  }
+
+  .contentContainer {
+    width: 100%;
+    margin-top: 2rem;
+    max-width: 1200px;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: 1rem;
+
+    h2 {
+      padding: 2rem 0rem;
+    }
   }
 }
