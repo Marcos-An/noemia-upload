@@ -1,8 +1,10 @@
 .container {
   width: 100%;
   max-width: 400px;
-  margin: 2.4rem;
   padding: 2rem;
+  margin: 2.4rem;
+  margin-top: -10rem;
+
   background-color: var(--white);
   border-radius: 1rem;
 }

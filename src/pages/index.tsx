@@ -7,7 +7,7 @@ import * as _ from "lodash"
 import prettyBytes from 'pretty-bytes'
 import api from '../services/api'
 import 'react-circular-progressbar/dist/styles.css'
-
+import Image from 'next/image'
 
 interface FileProps {
   file: any;
@@ -115,6 +115,14 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.imageContainer}>
+        <Image
+          src='/logo.png'
+          alt="logo"
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
       <ContentContainer>
         <Dropzone onUpload={handleUpload} />
         {!!uploadedFiles.length && <FileList files={uploadedFiles} handleDeleteFile={handleDeleteFile} />}

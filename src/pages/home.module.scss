@@ -6,4 +6,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .imageContainer {
+    position: absolute;
+    top: 17rem;
+    height: 7rem;
+    width: 16rem;
+  }
 }
