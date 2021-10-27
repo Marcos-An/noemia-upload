@@ -1,7 +1,6 @@
 .container {
-  width: 100vw;
-  height: 100vh;
-  padding: 0rem 2.4rem;
+  min-height: 100vh;
+  padding: 2.4rem;
   background-color: var(--yellow);
 
   display: flex;
@@ -11,7 +10,7 @@
 
   .imageContainer {
     position: relative;
-    bottom: 5rem;
+    bottom: 2rem;
     height: 7rem;
     width: 16rem;
   }
